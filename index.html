@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Worte</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230c1410'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='22' font-weight='700' fill='%235d9e7a'>g</text></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230c1410'/><text x='16' y='23' font-family='Georgia,serif' font-size='22' font-weight='700' fill='%235d9e7a' text-anchor='middle'>g</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 
@@ -45,8 +45,12 @@
 body{
   background:var(--bg);color:var(--text);
   font-family:'IBM Plex Sans',sans-serif;font-weight:300;
+  font-feature-settings:"ss01";
   min-height:100vh;padding:40px 20px 80px;
   transition:background .25s,color .25s;
+}
+@media(max-width:700px){
+  body{padding-top:80px;}
 }
 body::before{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
@@ -78,6 +82,23 @@ h1 span{color:var(--accent);}
   font-size:12px;color:var(--text-muted);
   font-family:'IBM Plex Mono',monospace;letter-spacing:0.5px;
 }
+.hdr-row{
+  display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:10px;
+}
+.gtools-link{
+  display:inline-flex;align-items:center;gap:4px;
+  font-family:'IBM Plex Mono',monospace;font-size:10px;
+  letter-spacing:1px;color:var(--text-muted);
+  text-decoration:none;border:1px solid var(--border);padding:3px 10px;
+  transition:color .2s,border-color .2s;
+}
+.gtools-link:hover{color:var(--accent);border-color:var(--accent);}
+.disclaimer{
+  margin-top:32px;font-family:'IBM Plex Mono',monospace;
+  font-size:10px;line-height:1.7;letter-spacing:0.3px;
+  color:var(--text-muted);text-align:center;opacity:.7;
+  max-width:720px;margin-left:auto;margin-right:auto;
+}
 .badge{
   display:inline-block;font-family:'IBM Plex Mono',monospace;
   font-size:10px;letter-spacing:3px;text-transform:uppercase;
@@ -104,6 +125,7 @@ footer{
   margin-top: 40px;
 }
 @media(max-width:700px){
+  body { padding-top: 78px; }
   .cards-grid { grid-template-columns: 1fr; }
 }
 
@@ -194,7 +216,10 @@ footer{
 
   <header style="text-align:center;margin-bottom:8px;">
 <h1>Worte für <span>jeden Moment</span></h1>
-    <p class="subtitle">Sprüche · Witze · Trost</p>
+    <div class="hdr-row">
+      <p class="subtitle">Sprüche · Witze · Trost</p>
+      <a class="gtools-link" href="https://rglowania.github.io/gtools/">Part of gTools ↗</a>
+    </div>
   </header>
 
   <div class="cards-grid">
@@ -227,7 +252,7 @@ footer{
 
 </div>
 
-<footer>&copy; Robin Glowania &middot; Zuletzt aktualisiert: 04.05.2026</footer>
+<footer>&copy; Robin Glowania &middot; Zuletzt aktualisiert: 19.05.2026</footer>
 
 <script>
 function setTheme(t) {
